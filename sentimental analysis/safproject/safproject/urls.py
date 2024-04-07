@@ -21,6 +21,7 @@ from safproject import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('',include('safapp.urls')),
     #path('signup/', include('safapp.urls')),

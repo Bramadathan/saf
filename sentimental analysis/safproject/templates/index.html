@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,11 +22,13 @@
     <style>
         /* Custom styling for the sentiment analysis page */
         body {
-            font-family: 'Montserrat', sans-serif;
-			background-image: url('bg.png');
-            color: #333; /* Dark text color */
-            position: relative; /* Set position to relative */
-        }
+        font-family: 'Montserrat', sans-serif;
+        background-image: url('{% static 'bg.jpeg' %}');
+        background-size: cover; /* Ensure the background image covers the entire body */
+        background-position: center; /* Center the background image */
+        color: #333; /* Dark text color */
+        position: relative; /* Set position to relative */
+    }
 
         .section-center {
             padding: 50px 0;
@@ -120,6 +123,7 @@
             </div>
         </div>
     </div>
+    
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

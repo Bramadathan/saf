@@ -1,45 +1,28 @@
-
+{% load static %}
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login & Registration Form</title>
+  <title>Signup Page</title>
   <!---Custom CSS File--->
-  <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
   <div class="container">
-    <input type="checkbox" id="check">
-    <div class="login form">
-      <header>Login</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email">
-        <input type="password" placeholder="Enter your password">
-        <a href="#">Forgot password?</a>
-        <input type="button" class="button" value="Login">
-      </form>
-      <div class="signup">
-        <span class="signup">Don't have an account?
-         <label for="check">Signup</label>
-        </span>
-      </div>
-    </div>
-    <div class="registration form">
+    <div class="signup form">
       <header>Signup</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email">
-        <input type="password" placeholder="Create a password">
-        <input type="password" placeholder="Confirm your password">
-        <input type="button" class="button" value="Signup">
+      <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter your username">
+        <input type="email" name="email" placeholder="Enter your email">
+        <input type="password" name="password1" placeholder="Enter your password">
+        <input type="password" name="password2" placeholder="Confirm your password">
+        <input type="submit" class="button" value="Signup">
       </form>
-      <div class="signup">
-        <span class="signup">Already have an account?
-         <label for="check">Login</label>
-        </span>
+      <div class="login">
+        <span class="login">Already have an account? <a href="{% url 'login' %}">Login</a></span>
       </div>
     </div>
   </div>
