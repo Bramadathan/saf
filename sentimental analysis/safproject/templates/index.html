@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Sentimental Analysis</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+    <!-- Custom styles -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <style>
+        /* Custom styling for the sentiment analysis page */
+        body {
+            font-family: 'Montserrat', sans-serif;
+			background-image: url('bg.png');
+            color: #333; /* Dark text color */
+            position: relative; /* Set position to relative */
+        }
+
+        .section-center {
+            padding: 50px 0;
+        }
+
+        .booking-cta {
+    background-color: rgba(255, 255, 255, 0.5); /* White background color with alpha transparency */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    backdrop-filter: blur(20px); /* Apply a blur effect to create a glass-like effect */
+}
+
+
+        .booking-cta h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333; /* Dark text color */
+        }
+
+        .booking-cta p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #666; /* Gray text color */
+        }
+
+        /* Login/Signup Buttons */
+        .top-right-btns {
+            position: absolute; /* Set position to absolute */
+            top: 20px; /* Adjust top position */
+            right: 20px; /* Adjust right position */
+			margin-bottom: 50px;
+        }
+
+        .top-right-btns a.btn {
+            margin-left: 10px; /* Add space between buttons */
+            border-radius: 20px; /* Rounded corners */
+            padding: 10px 20px; /* Padding */
+            font-size: 16px; /* Font size */
+            font-weight: bold; /* Bold text */
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        .top-right-btns a.btn-primary {
+            background-color: #007bff; /* Blue background color for primary button */
+            border-color: #007bff; /* Blue border color */
+            color: #fff; /* White text color */
+        }
+
+        .top-right-btns a.btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3;
+        }
+
+        .top-right-btns a.btn-success {
+            background-color: #28a745; /* Green background color for success button */
+            border-color: #28a745; /* Green border color */
+            color: #fff; /* White text color */
+			margin-bottom: 50px;
+        }
+
+        .top-right-btns a.btn-success:hover {
+            background-color: #218838; /* Darker green on hover */
+            border-color: #218838;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Login/Signup Buttons -->
+    <div class="top-right-btns">
+        <a href="login" class="btn btn-primary">Login</a>
+        <a href="signup" class="btn btn-success">Signup</a>
+    </div>
+
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-md-push-5">
+                        <div class="booking-cta">
+                            <h1>Explore Unique Stays with Sentimental Analysis in E-commerce</h1>
+                            <p>Sentiment analysis in e-commerce refers to the process of analyzing customer feedback, reviews, and interactions to understand the overall sentiment or emotional tone associated with a product, service, or brand. This analysis can provide valuable insights into customer satisfaction, preferences, and trends, enabling businesses to make informed decisions to enhance the shopping experience and drive sales.</p><br>
+                            <p><b>Product Improvement:</b> By analyzing sentiment in customer feedback and reviews, e-commerce businesses can identify specific areas for product improvement. Whether it's addressing common complaints, enhancing features that are highly praised, or introducing new functionalities based on customer suggestions, sentiment analysis can guide product development efforts to better meet customer needs and preferences.</p><br>
+                            <p><b>Marketing Effectiveness:</b> Sentiment analysis can evaluate the effectiveness of marketing campaigns and promotions by gauging customer reactions and perceptions. By analyzing sentiment across different marketing channels, businesses can determine which strategies resonate most positively with their target audience and adjust their marketing efforts accordingly to maximize engagement and conversion rates.</p><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
