@@ -103,9 +103,24 @@
 
     <!-- Login/Signup Buttons -->
     <div class="top-right-btns">
-        <a href="login" class="btn btn-primary">Login</a>
-        <a href="signup" class="btn btn-success">Signup</a>
-    </div>
+    {% if request.user.is_authenticated %}
+        <!-- If user is authenticated, display username and logout button -->
+        <p>{{ request.user.username }}</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <!-- If user is not authenticated, display login and signup buttons -->
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-success">Signup</a>
+    {% endif %}
+</div>
+</div>
+
+    
+
+<h1>Welcome!</h1>
 
     <div id="booking" class="section">
         <div class="section-center">

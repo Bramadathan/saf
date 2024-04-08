@@ -13,14 +13,20 @@
   <div class="container">
     <div class="signup form">
       <header>Signup</header>
-      <form method="post" action="{% url 'signup' %}">
+       <h1>Signup</h1>
+    <form action="{% url 'signup' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Enter your username">
-        <input type="email" name="email" placeholder="Enter your email">
-        <input type="password" name="password1" placeholder="Enter your password">
-        <input type="password" name="password2" placeholder="Confirm your password">
-        <input type="submit" class="button" value="Signup">
-      </form>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required maxlength="150" pattern="[A-Za-z0-9@/./+/-/_]+" title="Letters, digits and @/./+/-/_ only"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required minlength="4"><br><br>
+
+        <label for="password_confirmation">Password confirmation:</label><br>
+        <input type="password" id="password_confirmation" name="password_confirmation" required><br><br>
+
+        <button type="submit">Signup</button>
+    </form>
       <div class="login">
         <span class="login">Already have an account? <a href="{% url 'login' %}">Login</a></span>
       </div>

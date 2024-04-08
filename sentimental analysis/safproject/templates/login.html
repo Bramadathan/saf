@@ -1,4 +1,5 @@
-{% load static %}
+{% load static %} <!-- Load static files such as CSS -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,31 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login Page</title>
-  <!---Custom CSS File--->
-  
+  <!-- Link to the custom CSS file -->
   <link rel="stylesheet" href="{% static 'style.css' %}">
-
-
 </head>
 <body>
   <div class="container">
+    <!-- Checkbox for menu -->
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Login</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email">
-        <input type="password" placeholder="Enter your password">
-        <a href="#">Forgot password?</a>
-        <input type="button" class="button" value="Login">
+      <h1>Login</h1>
+      <!-- Form for login -->
+      <form method="POST">
+        {% csrf_token %} <!-- CSRF protection -->
+        {{ form.as_p }} <!-- Display form fields -->
+        <button type="submit">Login</button>
+        <a href="{% url 'signup' %}">Don't have an account? Create one</a> <!-- Link to signup page -->
       </form>
-      <div class="signup">
-        <span class="signup">Don't have an account?
-            <label for="check"><a href="{% url 'signup' %}">Sign-Up</a></label>
-
-        </span>
-      </div>
     </div>
-    
   </div>
 </body>
 </html>
