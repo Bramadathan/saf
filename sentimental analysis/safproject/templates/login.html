@@ -11,20 +11,11 @@
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-  <div class="container">
-    <!-- Checkbox for menu -->
-    <input type="checkbox" id="check">
-    <div class="login form">
-      <header>Login</header>
-      <h1>Login</h1>
-      <!-- Form for login -->
-      <form method="POST">
-        {% csrf_token %} <!-- CSRF protection -->
-        {{ form.as_p }} <!-- Display form fields -->
-        <button type="submit">Login</button>
-        <a href="{% url 'signup' %}">Don't have an account? Create one</a> <!-- Link to signup page -->
-      </form>
-    </div>
-  </div>
+  <form method="post" class="login-form">
+    <h1>User Login</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
 </body>
 </html>

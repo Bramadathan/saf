@@ -1,43 +1,36 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import SignupForm, LoginForm
+from .forms import UserRegistrationForm, UserForm
+from django.contrib.auth.forms import AuthenticationForm
 def index(request):
     return render(request, 'index.html')
 
-# signup page
-def user_signup(request):
+def user_register(request):
     if request.method == 'POST':
-        # If the request method is POST, process the form data
-        form = SignupForm(request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            # If the form data is valid, save the form
-            form.save()
-            # Redirect to the login page after successful signup
-            return redirect('login')
+            user = form.save(commit=False)
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.save()
+            return redirect('safapp:user_login')
     else:
-        # If the request method is not POST, render the empty form
-        form = SignupForm()
-        # Render the signup form template with the form object
+        form = UserRegistrationForm()
     return render(request, 'signup.html', {'form': form})
 
 
-
-# login page
 def user_login(request):
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = AuthenticationForm(request, request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
-            if user:
-                login(request, user)
-                return redirect('home')
+            user = form.get_user()
+            login(request, user)
+            # Redirect to the dashboard after successful login
+            return redirect('safapp:user_login')
     else:
-        form = LoginForm()
+        form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-# logout page
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return redirect('safapp:index')
